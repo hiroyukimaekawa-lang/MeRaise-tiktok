@@ -62,19 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Slick Carouselの初期化（モバイルのみ）
+// Slick Carouselの初期化を無効化（レスポンシブ時はHTMLの内容のみを表示）
+// すべての画面サイズでカルーセルを無効化
 $(document).ready(function(){
-    if (window.innerWidth <= 768) {
-        $('.carousel').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: true,
-            arrows: false,
-            variableWidth: true
-        });
+    // 既に初期化されているSlick Carouselを破棄
+    if ($('.carousel').hasClass('slick-initialized')) {
+        $('.carousel').slick('unslick');
     }
+    
+    // カルーセルクラスを削除して通常のグリッド表示に
+    $('.carousel').removeClass('slick-initialized slick-slider');
+    
+    // ウィンドウリサイズ時もカルーセルを無効化
+    $(window).on('resize', function(){
+        if ($('.carousel').hasClass('slick-initialized')) {
+            $('.carousel').slick('unslick');
+        }
+        $('.carousel').removeClass('slick-initialized slick-slider');
+    });
 });
 
 // CTAボタンのクリックイベント（実際のリンクに置き換える必要があります）
