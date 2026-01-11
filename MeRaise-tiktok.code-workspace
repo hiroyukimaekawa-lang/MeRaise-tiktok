@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Desktop/meraise-lp/lp-img"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MeRaise-tiktok"
+	}
+}
