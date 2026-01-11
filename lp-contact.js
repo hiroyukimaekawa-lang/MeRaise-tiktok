@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                         <div class="back-button-container">
-                            <a href="meraise-career.html" class="back-to-top-btn">最初のページに戻る</a>
+                            <a href="index.html" class="back-to-top-btn">最初のページに戻る</a>
                         </div>
                     `;
                     window.scrollTo(0, 0); // ページ最上部にスクロール
