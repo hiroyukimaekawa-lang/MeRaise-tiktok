@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会員登録 - MeRaise Career - </title>
+    <link rel="stylesheet" href="lp-contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "swi96i063b");
+    </script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-025GNWPQ12"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-025GNWPQ12');
+        </script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="progress-bar">
+            <div class="step active" id="step-indicator-1">
+                <div class="step-icon">1</div>
+                <p>基本情報</p>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step-indicator-2">
+                <div class="step-icon">2</div>
+                <p>学歴情報</p>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step-indicator-3">
+                <div class="step-icon">3</div>
+                <p>アカウント情報</p>
+            </div>
+        </div>
+
+        <div class="form-header">
+            <h1>会員専用限定特典を今すぐチェック！！</h1>
+            <p>大手内定獲得後の現役大学生のサポートや<br>社会人のリアルが知れる動画・大手企業先行通過のES等豪華特典を無料で見放題！<br>簡単入力3分で登録ができます</p>
+        </div>
+
+        <form id="registrationForm" class="h-adr" action="https://formspree.io/f/mnnvqnbd" method="POST">
+            
+            <span class="p-country-name" style="display:none;">Japan</span>
+
+            <div class="form-step active-step" id="form-step-1">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="service" class="label-title">お問い合わせ種別 <span class="required">*</span></label>
+                        <select id="service" name="お問い合わせ種別" required>
+                            <option value="">選択してください</option>
+                            <option value="動画のフルバージョンを見る">動画のフルバージョンを見たい</option>
+                            <option value="就活相談">個別で就活のサポートをしてほしい</option>
+                            <option value="MeRaise-agentについて">インタビュアーとして実際に話を聞きたい</option>
+                            <option value="MeRaise-agentについて">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name-sei" class="label-title">お名前 <span class="required">*</span></label>
+                        <div class="form-row">
+                            <input type="text" id="name-sei" name="姓" placeholder="姓" required>
+                            <input type="text" id="name-mei" name="名" placeholder="名" required>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="furigana-sei" class="label-title">フリガナ <span class="required">*</span></label>
+                        <div class="form-row">
+                            <input type="text" id="furigana-sei" name="フリガナ（姓）" placeholder="セイ" required>
+                            <input type="text" id="furigana-mei" name="フリガナ（名）" placeholder="メイ" required>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="label-title">文系/理系 <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="系" value="文系" required> 文系</label>
+                            <label class="radio-label"><input type="radio" name="系" value="理系" required> 理系</label>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="label-title">性別 <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="性別" value="男性" required> 男性</label>
+                            <label class="radio-label"><input type="radio" name="性別" value="女性" required> 女性</label>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="birth-date" class="label-title">生年月日 <span class="required">*</span></label>
+                        <input type="date" id="birth-date" name="生年月日" required>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button type="button" class="btn btn-next">次へ進む</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="form-step-2">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="school-name" class="label-title">学校名 <span class="required">*</span></label>
+                        <input type="text" id="school-name" name="学校名" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="faculty-name" class="label-title">学部名 <span class="required">*</span></label>
+                        <input type="text" id="faculty-name" name="学部名" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="department-name" class="label-title">学科名 <span class="required">*</span></label>
+                        <input type="text" id="department-name" name="学科名" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="grade" class="label-title">学年 <span class="required">*</span></label>
+                        <select id="grade" name="学年" required>
+                            <option value="">学年を選択</option>
+                            <option value="大学1年">大学1年</option>
+                            <option value="大学2年">大学2年</option>
+                            <option value="大学3年">大学3年</option>
+                            <option value="大学4年">大学4年</option>
+                            <option value="修士1年">修士1年</option>
+                            <option value="修士2年">修士2年</option>
+                            <option value="博士課程">博士課程</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="graduation-year" class="label-title">卒業年度 <span class="required">*</span></label>
+                        <select id="graduation-year" name="卒業年度" required>
+                            <option value="">卒業年度を選択</option>
+                            <option value="2025年卒">2025年卒</option>
+                            <option value="2026年卒">2026年卒</option>
+                            <option value="2027年卒">2027年卒</option>
+                            <option value="2028年卒">2028年卒</option>
+                            <option value="2029年卒">2029年卒</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button type="button" class="btn btn-prev">戻る</button>
+                    <button type="button" class="btn btn-next">次へ進む</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="form-step-3">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="email" class="label-title">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="email" name="メールアドレス" placeholder="mail@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="label-title">パスワード <span class="required">*</span></label>
+                        <input type="password" id="password" name="パスワード" placeholder="8文字以上で入力" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phone" class="label-title">携帯電話番号 (数字のみ) <span class="required">*</span> <span class="private-info">（非公開情報）</span></label>
+                        <input type="tel" id="phone" name="携帯電話番号" placeholder="09012345678" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postal-code" class="label-title">郵便番号 <span class="required">*</span> <span class="private-info">（非公開情報）</span></label>
+                        <input type="text" id="postal-code" name="郵便番号" class="p-postal-code" placeholder="1000001" required>
+                        <p class="form-note">郵便番号を入力すると町名までの住所が自動入力されます。</p>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="prefecture" class="label-title">都道府県 <span class="required">*</span> <span class="private-info">（非公開情報）</span></label>
+                        <select id="prefecture" name="都道府県" class="p-region" required>
+                            <option value="">都道府県を選択</option>
+                            <option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="agreement-section">
+                    <p class="agreement-text">
+                        本サービスは、MeRaise Inc.（以下「当社」といいます）が運営しています。本サービスご登録時にご入力頂いた個人情報は、当社の定める本サービスの利用規約及びプライバシーポリシーに従って取り扱うものとします。
+                    </p>
+                    <div class="agreement-check">
+                        <label>
+                            <input type="checkbox" name="agreement" value="agreed" required>
+                            <a href="#" target="_blank" rel="noopener noreferrer">利用規約</a>及び<a href="#" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意します
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button type="button" class="btn btn-prev">戻る</button>
+                    <button type="submit" class="submit-btn">会員登録する</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    
+    <script src="lp-contact.js" defer></script>
+</body>
+</html>
