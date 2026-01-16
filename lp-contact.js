@@ -191,6 +191,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 const hasSuccess = results.some(result => result !== null);
                 
                 if (hasSuccess) {
+                    // フォーム送信成功イベントを送信
+                    if (window.dataLayer) {
+                        window.dataLayer.push({
+                            'event': 'form_submit',
+                            'event_category': 'conversion',
+                            'event_label': 'お問い合わせフォーム',
+                            'value': 1
+                        });
+                    }
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'conversion',
+                            'event_label': 'お問い合わせフォーム',
+                            'value': 1
+                        });
+                    }
                     // 少なくとも1つの送信が成功した場合、フォームをサンクスメッセージとカレンダー予約に置き換える
                     formContainer.innerHTML = `
                         <div class="form-header success-header">

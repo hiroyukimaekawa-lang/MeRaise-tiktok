@@ -342,6 +342,23 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
+                    // フォーム送信成功イベントを送信
+                    if (window.dataLayer) {
+                        window.dataLayer.push({
+                            'event': 'form_submit',
+                            'event_category': 'conversion',
+                            'event_label': '会員登録フォーム',
+                            'value': 1
+                        });
+                    }
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'conversion',
+                            'event_label': '会員登録フォーム',
+                            'value': 1
+                        });
+                    }
+                    
                     alert('登録が完了しました！\nご登録ありがとうございます。');
                     registerForm.reset();
                     currentStep = 1;
@@ -362,5 +379,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 初期表示
         updateStepDisplay();
+    }
+
+    // ========== Google Analytics 4 CV計測イベント ==========
+    // イベント送信用の共通関数（GTMとGA4の両方に対応）
+    function sendGAEvent(eventName, eventParams = {}) {
+        // dataLayer.push を使用（GTMで処理される）
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                'event': eventName,
+                ...eventParams
+            });
+        }
+        // gtag も併用（GA4に直接送信）
+        if (typeof gtag !== 'undefined') {
+            gtag('event', eventName, eventParams);
+        }
+    }
+
+    // LINE相談ボタン クリック計測
+    const lineConsultationBtn = document.getElementById('line-consultation-btn');
+    if (lineConsultationBtn) {
+        lineConsultationBtn.addEventListener('click', function() {
+            sendGAEvent('line_click', {
+                'event_category': 'engagement',
+                'event_label': 'LINE相談ボタン',
+                'value': 1
+            });
+        });
+    }
+
+    // 「面接対策はこちら」ボタン クリック計測
+    const interviewBtn = document.getElementById('interview-btn');
+    if (interviewBtn) {
+        interviewBtn.addEventListener('click', function() {
+            sendGAEvent('interview_click', {
+                'event_category': 'engagement',
+                'event_label': '面接対策ボタン',
+                'value': 1
+            });
+        });
+    }
+
+    // 「ES添削はこちら」ボタン クリック計測
+    const esEditBtn = document.getElementById('es-edit-btn');
+    if (esEditBtn) {
+        esEditBtn.addEventListener('click', function() {
+            sendGAEvent('es_click', {
+                'event_category': 'engagement',
+                'event_label': 'ES添削ボタン',
+                'value': 1
+            });
+        });
+    }
+
+    // フォーム送信完了計測（index.html内のregister-form）
+    const registerForm = document.getElementById('register-form');
+    if (registerForm) {
+        // 既存のsubmitイベントリスナーを保持しつつ、イベント送信を追加
+        const originalSubmitHandler = registerForm.onsubmit;
+        registerForm.addEventListener('submit', function(e) {
+            // フォーム送信が成功した場合のイベント送信は、送信成功後に実行される
+        }, true);
     }
 });
