@@ -103,13 +103,14 @@ body {
 
 /* ヒーローセクション */
 .hero-section {
-    background-image: url('img/バナー背景画像　youtube.png');
+    background-image: url('./img/MeRaise.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 80px 20px;
+    padding: 100px 20px;
     color: #fff;
     position: relative;
+    object-fit: cover;
 }
 
 .hero-section::before {
