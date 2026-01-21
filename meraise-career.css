@@ -123,7 +123,7 @@ body {
     z-index: 0;
 }
 
-.hero-section > * {
+.hero-section>* {
     position: relative;
     z-index: 1;
 }
@@ -245,14 +245,14 @@ body {
 
 /* 企業セクション */
 .company-section {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 .section-title {
@@ -620,6 +620,7 @@ body {
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
+
     /* ヘッダーの調整 */
     .header-top {
         padding: 12px 0;
@@ -724,13 +725,15 @@ body {
 
     /* メインコンテンツの調整 */
     .main-content {
-        padding: 40px 15px;
+        padding: 10px 15px;
+        /* Reduced from 40px */
         overflow-x: hidden;
     }
 
     /* 企業セクションの調整 */
     .company-section {
-        margin-bottom: 50px;
+        margin-bottom: 15px;
+        /* Reduced from 25px */
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
@@ -744,7 +747,8 @@ body {
     }
 
     .section-title {
-        font-size: 22px;
+        font-size: 16px;
+        /* Reduced from 22px */
     }
 
     .see-all-link-top {
@@ -794,76 +798,64 @@ body {
 
     /* 企業カードの調整 */
     .company-card {
-        padding: 18px 15px;
-        border-radius: 10px;
+        padding: 5px;
+        /* Extremely reduced */
+        border-radius: 6px;
         min-width: 0;
         flex-shrink: 0;
     }
 
     .company-header {
-        gap: 12px;
-        margin-bottom: 12px;
-        min-height: 60px;
-        justify-content: center;
+        min-height: auto;
+        margin-bottom: 4px;
+        gap: 8px;
     }
 
     .logo-image {
-        width: 60px;
-        height: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .company-card:hover .logo-image {
-        opacity: 0;
-        transform: translateX(-50%) scale(0.8);
+        width: 55px;
+        height: 55px;
     }
 
     .company-name {
-        font-size: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-        left: 50%;
-        transform: translateX(-50%) scale(0.8);
-        text-align: center;
-    }
-
-    .company-card:hover .company-name {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
+        font-size: 11px;
     }
 
     .university-info {
-        gap: 6px;
-        margin-bottom: 10px;
+        gap: 4px;
+        margin-bottom: 4px;
     }
 
     .person-icon {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
     }
 
     .university {
-        font-size: 12px;
+        font-size: 10px;
     }
 
-    .tags {
-        gap: 5px;
-        flex-direction: column;
+    .student-info {
+        margin-top: 4px;
     }
 
     .tag {
-        font-size: 10px;
-        padding: 2px 8px;
+        font-size: 9px;
+        padding: 2px 6px;
+        margin-bottom: 2px;
     }
+
+    /* Hide redundant info if needed to save space */
+    .tags {
+        gap: 2px;
+    }
+
+
 
     /* 「全て見る」カードの調整 */
     .see-all-card {
         min-height: auto;
-        padding: 18px 15px;
+        padding: 5px;
     }
 
     .see-all-icon {
@@ -962,6 +954,7 @@ body {
 }
 
 @media (max-width: 480px) {
+
     /* ヘッダーの調整 - 3つ横並び */
     .header-container {
         display: flex;
@@ -1157,6 +1150,7 @@ body {
         opacity: 0;
         transform: translateY(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1491,6 +1485,7 @@ body {
 
 /* Slick Carouselを完全に無効化するための追加ルール（レスポンシブ時） */
 @media (max-width: 768px) {
+
     /* Slick Carouselのすべてのスタイルを上書き - 横並び表示 */
     .company-grid.carousel,
     .company-grid.carousel.slick-initialized,
