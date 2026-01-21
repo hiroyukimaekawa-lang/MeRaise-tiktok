@@ -141,6 +141,13 @@ body {
     align-items: center;
 }
 
+.hero-text {
+    max-width: 500px;
+    /* テキストの幅を制限して背景の人物との被りを防ぐ */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* 視認性を向上 */
+}
+
 .hero-subtitle {
     font-size: 20px;
     margin-bottom: 15px;
@@ -679,6 +686,14 @@ body {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
+        align-content: start;
+    }
+
+    .hero-text {
+        margin-bottom: 100px;
+        /* 下部にスペースを空けて背景の人物を表示させる */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-subtitle {
