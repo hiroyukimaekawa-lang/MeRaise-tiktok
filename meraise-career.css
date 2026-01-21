@@ -107,7 +107,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 20px;
+    padding: 130px 20px;
     color: #fff;
     position: relative;
     object-fit: cover;
@@ -672,7 +672,7 @@ body {
 
     /* ヒーローセクションの調整 */
     .hero-section {
-        padding: 50px 15px;
+        padding: 65px 15px;
     }
 
     .hero-content {
