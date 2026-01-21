@@ -181,7 +181,7 @@ body {
 .hero-cta {
     display: inline-block;
     padding: 18px 40px;
-    background-color: #E70000;
+    background-color: #ffd500;
     color: #fff;
     text-decoration: none;
     font-weight: 700;
@@ -192,7 +192,7 @@ body {
 }
 
 .hero-cta:hover {
-    background-color: #C50000;
+    background-color: #ffd500;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(231, 0, 0, 0.4);
 }
