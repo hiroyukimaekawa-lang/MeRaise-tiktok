@@ -103,7 +103,7 @@ body {
 
 /* ヒーローセクション */
 .hero-section {
-    background-image: url('./img/MeRaise.jpg');
+    background-image: url('img/名称未設定のデザイン (1).png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -120,7 +120,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(26, 35, 59, 0.7) 0%, rgba(42, 58, 91, 0.7) 100%);
+    /* background: linear-gradient(135deg, rgba(26, 35, 59, 0.7) 0%, rgba(42, 58, 91, 0.7) 100%); */
     z-index: 0;
 }
 
@@ -136,13 +136,16 @@ body {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 60px;
     align-items: center;
+    justify-items: center;
+    text-align: center;
 }
 
 .hero-text {
-    max-width: 500px;
+    max-width: 800px;
+    margin: 150px auto 0;
     /* テキストの幅を制限して背景の人物との被りを防ぐ */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     /* 視認性を向上 */
@@ -316,17 +319,10 @@ body {
 }
 
 .logo-image {
-    /* モザイク効果の実現 */
     width: 90px;
     height: 90px;
     object-fit: contain;
-    /* 画像を小さく縮小してから拡大することでモザイク効果を実現 */
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-    /* ぼかし効果でよりモザイク風に */
-    filter: blur(2px) contrast(1.2);
-    opacity: 0.7;
+    opacity: 1;
     display: block;
     flex-shrink: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -335,33 +331,13 @@ body {
     transform: translateX(-50%);
 }
 
-.company-card:hover .logo-image {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.8);
-}
+/* .company-card:hover .logo-image removed */
 
 .company-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) scale(0.8);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: none;
 }
 
-.company-card:hover .company-name {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-}
+/* .company-card:hover .company-name removed */
 
 .university-info {
     display: flex;
@@ -680,7 +656,7 @@ body {
     /* ヒーローセクションの調整 */
     /* ヒーローセクションの調整 */
     .hero-section {
-        padding: 180px 20px 40px;
+        padding: 70px 20px 40px;
         /* 上部を空けてテキストを下へ配置 */
         background-position: center top;
         /* 画像の位置を調整 */
@@ -703,7 +679,7 @@ body {
     }
 
     .hero-subtitle {
-        font-size: 13px;
+        font-size: 15px;
         /* サイズ縮小 */
         margin-bottom: 8px;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -840,8 +816,8 @@ body {
     }
 
     .logo-image {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 80px;
     }
 
     .company-name {
