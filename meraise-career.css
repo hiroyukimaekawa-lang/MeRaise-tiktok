@@ -678,38 +678,48 @@ body {
     }
 
     /* ヒーローセクションの調整 */
+    /* ヒーローセクションの調整 */
     .hero-section {
-        padding: 65px 15px;
+        padding: 220px 20px 40px;
+        /* 上部を空けてテキストを下へ配置 */
+        background-position: center top;
+        /* 画像の位置を調整 */
     }
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-        align-content: start;
+        gap: 20px;
+        text-align: left;
+        /* 左寄せ */
+        align-content: end;
     }
 
     .hero-text {
-        margin-bottom: 100px;
-        /* 下部にスペースを空けて背景の人物を表示させる */
-        margin-left: auto;
+        margin-bottom: 0px;
+        margin-left: 0;
         margin-right: auto;
+        max-width: 65%;
+        /* 右側の人物に被らないように幅を制限 */
     }
 
     .hero-subtitle {
-        font-size: 16px;
-        margin-bottom: 12px;
+        font-size: 13px;
+        /* サイズ縮小 */
+        margin-bottom: 8px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     }
 
     .hero-title {
-        font-size: 28px;
+        font-size: 22px;
+        /* サイズ縮小 */
         line-height: 1.3;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     }
 
     .hero-domain {
-        font-size: 20px;
-        margin-bottom: 20px;
+        font-size: 16px;
+        margin-bottom: 15px;
     }
 
     .hero-description {
@@ -719,12 +729,14 @@ body {
     }
 
     .hero-cta {
-        padding: 14px 30px;
-        font-size: 16px;
-        width: 100%;
-        max-width: 300px;
-        display: block;
-        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 14px;
+        /* サイズ縮小 */
+        width: auto;
+        /* 幅自動 */
+        max-width: none;
+        display: inline-block;
+        margin: 0;
     }
 
     .image-collage {
