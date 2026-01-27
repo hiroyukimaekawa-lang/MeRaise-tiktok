@@ -103,7 +103,7 @@ body {
 
 /* ヒーローセクション */
 .hero-section {
-    background-image: url('img/名称未設定のデザイン (1).png');
+    background-image: url('./img/top-back.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
