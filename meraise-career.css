@@ -104,26 +104,23 @@ body {
 /* ヒーローセクション */
 .hero-section {
     background-image: url('./img/top-back3.png');
-    background-size: cover;
-    background-position: center;
+    background-size: 100% auto;
+    /* 常に横幅いっぱい、比率維持 */
+    background-position: top center;
     background-repeat: no-repeat;
-    padding: 130px 20px;
+    /* 画像内のロゴ下にテキストを配置するための余白（比率維持） */
+    /* テキストを少し上に配置するため、55vw -> 48vw に変更 */
+    padding: 34vw 20px 40px;
     color: #fff;
+    /* テキスト色を白に戻す */
+    /* 背景画像下の余白部分用 */
     position: relative;
-    object-fit: cover;
-    filter: brightness(120%);
-
+    /* object-fit, filter, min-height など不要なプロパティを削除または調整 */
 }
 
+/* オーバーレイ削除（画像そのまま表示のため） */
 .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background: linear-gradient(135deg, rgba(26, 35, 59, 0.7) 0%, rgba(42, 58, 91, 0.7) 100%); */
-    z-index: 0;
+    display: none;
 }
 
 .hero-section>* {
@@ -137,60 +134,98 @@ body {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 60px;
-    align-items: center;
-    justify-items: center;
+    /* グリッド解除、マージン調整 */
+    display: block;
     text-align: center;
 }
 
 .hero-text {
-    max-width: 800px;
-    margin: 150px auto 0;
-    /* テキストの幅を制限して背景の人物との被りを防ぐ */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    /* 視認性を向上 */
+    /* 常に中央寄せ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .hero-subtitle {
-    font-size: 20px;
-    margin-bottom: 15px;
-    opacity: 0.9;
+    font-size: 3vw;
+    /* 4vw -> 3vw にサイズダウン */
+    margin-bottom: 1.5vw;
+    color: #fff;
+    /* 白文字 */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    /* 視認性向上のための影 */
+}
+
+/* PCサイズでフォントが巨大になりすぎないように制御 */
+@media (min-width: 1024px) {
+    .hero-subtitle {
+        font-size: 16px;
+        /* 20px -> 16px */
+        margin-bottom: 15px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        /* 40px -> 32px */
+    }
 }
 
 .hero-title {
-    font-size: 40px;
+    font-size: 5.5vw;
+    /* 7vw -> 5.5vw にサイズダウン */
     font-weight: 900;
-    margin-bottom: 15px;
+    margin-bottom: 2vw;
     line-height: 1.2;
+    color: #fff;
+    /* 白文字 */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-domain {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #E70000;
+    display: none;
+    /* 元コードにありましたが使用されていないようなので */
 }
 
 .hero-description {
-    font-size: 16px;
+    font-size: 2.8vw;
+    /* 3.5vw -> 2.8vw にサイズダウン */
     line-height: 1.8;
-    margin-bottom: 40px;
+    margin-bottom: 4vw;
     opacity: 0.95;
+    color: #fff;
+    /* 白文字 */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 1024px) {
+    .hero-description {
+        font-size: 14px;
+        /* 16px -> 14px */
+        margin-bottom: 40px;
+    }
 }
 
 .hero-cta {
     display: inline-block;
-    padding: 18px 40px;
+    padding: 1.5vw 4vw;
     background-color: #ffd500;
     color: #fff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 4vw;
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 15px rgba(231, 0, 0, 0.3);
+}
+
+@media (min-width: 1024px) {
+    .hero-cta {
+        padding: 18px 40px;
+        font-size: 18px;
+    }
 }
 
 .hero-cta:hover {
@@ -199,54 +234,9 @@ body {
     box-shadow: 0 6px 20px rgba(231, 0, 0, 0.4);
 }
 
-/* 画像コラージュ */
+/* 画像コラージュ (非表示のまま) */
 .hero-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-collage {
-    position: relative;
-    width: 400px;
-    height: 400px;
-}
-
-.collage-item {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.item1 {
-    top: 20%;
-    left: 10%;
-    transform: rotate(-5deg);
-}
-
-.item2 {
-    top: 50%;
-    right: 10%;
-    transform: rotate(5deg);
-}
-
-.item3 {
-    bottom: 20%;
-    left: 20%;
-    transform: rotate(-3deg);
-}
-
-.item4 {
-    top: 10%;
-    right: 30%;
-    transform: rotate(8deg);
+    display: none;
 }
 
 /* メインコンテンツ */
@@ -656,43 +646,40 @@ body {
     }
 
     /* ヒーローセクションの調整 */
-    /* ヒーローセクションの調整 */
-    .hero-section {
-        padding: 70px 20px 40px;
-        /* 上部を空けてテキストを下へ配置 */
-        background-position: center top;
-        /* 画像の位置を調整 */
-    }
+    /* ヒーローセクションの調整 - Global style handles layout */
+    /* .hero-section { padding already set globally to percentages } */
 
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        text-align: left;
-        /* 左寄せ */
-        align-content: end;
+        /* Already handled globally */
     }
 
     .hero-text {
-        margin-bottom: 0px;
-        margin-left: 0;
-        margin-right: auto;
-        max-width: 65%;
-        /* 右側の人物に被らないように幅を制限 */
+        /* Already centered globally */
     }
 
-    .hero-subtitle {
-        font-size: 15px;
-        /* サイズ縮小 */
-        margin-bottom: 8px;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    /* Background colors and text shadows for mobile specific visibility if needed, 
+       but global now sets base content colors. 
+       Leaving specific adjustments if they differ from desktop needs. */
+
+    /* Revert text colors to white/shadowed for image overlay if not using global */
+    .hero-text .hero-subtitle,
+    .hero-text .hero-title,
+    .hero-text .hero-description {
+        /* Keep text shadow for readability over image if global didn't cover it enough */
+    }
+
+    /* 画像上のテキストは白文字のまま影をつける */
+    .hero-text .hero-subtitle,
+    .hero-text .hero-title,
+    .hero-text .hero-description {
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     }
 
     .hero-title {
-        font-size: 30px;
-        /* サイズ縮小 */
+        font-size: 28px;
         line-height: 1.3;
         margin-bottom: 15px;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     }
 
     .hero-domain {
@@ -703,98 +690,22 @@ body {
     .hero-description {
         font-size: 14px;
         line-height: 1.7;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .hero-cta {
-        padding: 10px 20px;
-        font-size: 14px;
-        /* サイズ縮小 */
+        padding: 12px 24px;
+        font-size: 15px;
         width: auto;
-        /* 幅自動 */
         max-width: none;
         display: inline-block;
         margin: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .image-collage {
-        width: 100%;
-        max-width: 280px;
-        height: 280px;
-        margin: 0 auto;
-    }
-
-    .collage-item {
-        font-size: 14px;
-        padding: 15px;
-    }
-
-    /* メインコンテンツの調整 */
-    .main-content {
-        padding: 10px 15px;
-        /* Reduced from 40px */
-        overflow-x: hidden;
-    }
-
-    /* 企業セクションの調整 */
-    .company-section {
-        margin-bottom: 15px;
-        /* Reduced from 25px */
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* セクションヘッダーの調整 */
-    .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        margin-bottom: 0px;
-    }
-
-    .section-title {
-        font-size: 16px;
-        /* Reduced from 22px */
-    }
-
-    .see-all-link-top {
-        font-size: 13px;
-    }
-
-    /* 企業グリッドの調整 - レスポンシブ時も横並び */
-    .company-grid {
-        grid-template-columns: repeat(4, minmax(150px, 1fr)) !important;
-        display: grid !important;
-        gap: 12px !important;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* モバイル時はカルーセルを無効化し、横並びグリッド表示 */
-    .company-grid.carousel {
-        display: grid !important;
-        grid-template-columns: repeat(4, minmax(150px, 1fr)) !important;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Slick Carouselのスタイルを完全に無効化 */
-    .company-grid.carousel.slick-initialized,
-    .company-grid.carousel.slick-slider {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-    }
-
-    .company-grid.carousel .slick-list,
-    .company-grid.carousel .slick-track {
-        display: contents !important;
-        transform: none !important;
-    }
-
-    .company-grid.carousel .slick-slide {
-        display: block !important;
-        width: 100% !important;
-        padding: 0 !important;
+        display: none;
+        /* スマホではコラージュ非表示（必要であれば表示） */
     }
 
     /* カルーセルのドットを非表示 */
