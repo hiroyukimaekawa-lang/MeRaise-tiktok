@@ -102,11 +102,10 @@ body {
 }
 
 /* ヒーローセクション */
-/* ヒーローセクション */
 .hero-section {
     background-image: url('./img/top-back3.png');
-    background-size: 100% auto;
-    /* 常に横幅いっぱい、比率維持 */
+    background-size: cover;
+    /* 画像全体をカバー */
     background-position: top center;
     background-repeat: no-repeat;
     /* 画像内のロゴ下にテキストを配置するための余白（比率維持） */
@@ -137,14 +136,23 @@ body {
     text-align: center;
 }
 
+/* ヒーローテキストの位置調整（追加） */
 .hero-text {
-    /* 常に中央寄せ */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 15vw auto 0 auto;
+    /* 追加：上にマージンを追加して下げる */
     max-width: 100%;
+}
+
+/* デスクトップでの調整 */
+@media (min-width: 769px) {
+    .hero-text {
+        margin-top: 10vw;
+        /* デスクトップでは上に配置 */
+    }
 }
 
 .hero-subtitle {
@@ -156,26 +164,17 @@ body {
 
 /* PCサイズ等の上限設定（画面が大きすぎるときのみ固定） */
 @media (min-width: 1200px) {
-
     .hero-subtitle {
         font-size: 30px;
-        /* 1200px * 0.025 = 30px */
         margin-bottom: 18px;
     }
 
     .hero-title {
         font-size: 36px;
-        /* 1200px * 0.03 = 36px */
-    }
-
-    .hero-description {
-        font-size: 26px;
-        /* 1200px * 0.022 = 26.4px */
     }
 
     .hero-cta {
         font-size: 18px;
-        /* Button text max size */
         padding: 18px 48px;
     }
 }
@@ -202,29 +201,11 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-@media (max-width: 768px) {
-    .hero-subtitle {
-        font-size: 1.6vw;
-    }
-
-    .hero-title {
-        font-size: 2.1vw;
-        margin-bottom: 3vw;
-    }
-
-    .hero-description {
-        font-size: 1.4vw;
-    }
-
-    .hero-cta {
-        font-size: 2.2vw;
-        padding: 2vw 5vw;
-    }
-}
-
+/* ボタンの黄色い枠を調整（追加・修正） */
 .hero-cta {
     display: inline-block;
-    padding: 1vw 2vw;
+    padding: 1.5vw 3vw;
+    /* パディングを調整 */
     background-color: #ffd500;
     color: #fff;
     text-decoration: none;
@@ -233,19 +214,22 @@ body {
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 15px rgba(231, 0, 0, 0.3);
+    border: 2px solid #ffd500;
+    /* 枠線を追加 */
 }
-
-
 
 @media (min-width: 1024px) {
     .hero-cta {
         padding: 18px 40px;
         font-size: 18px;
+        border-width: 2px;
+        /* デスクトップでは少し太め */
     }
 }
 
 .hero-cta:hover {
-    background-color: #ffd500;
+    background-color: #ffc800;
+    border-color: #ffc800;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(231, 0, 0, 0.4);
 }
@@ -339,13 +323,9 @@ body {
     transform: translateX(-50%);
 }
 
-/* .company-card:hover .logo-image removed */
-
 .company-name {
     display: none;
 }
-
-/* .company-card:hover .company-name removed */
 
 .university-info {
     display: flex;
@@ -661,26 +641,22 @@ body {
         font-size: 13px;
     }
 
-    /* .hero-content margin-top 削除 */
+    /* ヒーローセクションの調整 */
     .hero-section {
-        padding: 250vw 20px 20px;
-        background-position: center -5vw;
+        background-image: url('./img/sp-top-back.png');
+        background-size: cover;
+        background-position: center -80px;
+        /* 高さを狭めるためさらに調整 */
+        background-repeat: no-repeat;
+        height: 380px;
+        padding: 40vw 20px 40px;
     }
 
-    /* ヒーローセクションの調整 */
-    /* ヒーローセクションの調整 - Global style handles layout */
-    /* .hero-section { padding already set globally to percentages } */
-
-
-
-
-
-    /* Background colors and text shadows for mobile specific visibility if needed, 
-       but global now sets base content colors. 
-       Leaving specific adjustments if they differ from desktop needs. */
-
-    /* Revert text colors to white/shadowed for image overlay if not using global */
-
+    /* ヒーローテキストのモバイル調整 */
+    .hero-text {
+        margin-top: 5vw;
+        /* 適度な余白に調整 */
+    }
 
     /* 画像上のテキストは白文字のまま影をつける */
     .hero-text .hero-subtitle,
@@ -688,39 +664,46 @@ body {
     .hero-text .hero-description {
         color: #fff;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-        font-size: 7px;
     }
 
+    /* 文字サイズの修正（赤枠内に収める） */
     .hero-subtitle {
-        font-size: 10px;
+        font-size: 12px !important;
+        /* コンパクトに */
         margin-bottom: 5px;
     }
 
     .hero-title {
-        font-size: 10px;
-        line-height: 1.2;
-        margin-bottom: 10px;
+        font-size: 16px !important;
+        /* 赤枠内に収める */
+        line-height: 1.3;
+        margin-bottom: 8px;
     }
 
     .hero-description {
-        font-size: 12px;
+        font-size: 14px !important;
+        /* 修正 */
         line-height: 1.5;
         margin-bottom: 15px;
     }
 
+    /* モバイル時のボタン調整（赤枠内に収める） */
     .hero-cta {
-        padding: 1px 2px;
-        font-size: 2px;
-        border-radius: 1px;
-        box-shadow: none;
-        width: auto;
-        display: inline-block;
-        margin: 0;
+        padding: 8px 20px !important;
+        /* コンパクトに */
+        font-size: 14px !important;
+        /* 小さく */
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(231, 0, 0, 0.3);
+        border: 1px solid #ffd500 !important;
+        /* モバイルでは細い枠線 */
+        display: inline-block !important;
+        margin: 0 !important;
+        width: auto !important;
     }
 
     .image-collage {
         display: none;
-        /* スマホではコラージュ非表示（必要であれば表示） */
     }
 
     /* カルーセルのドットを非表示 */
@@ -781,8 +764,6 @@ body {
     .tags {
         gap: 2px;
     }
-
-
 
     /* 「全て見る」カードの調整 */
     .see-all-card {
@@ -923,35 +904,39 @@ body {
 
     /* ヒーローセクションの調整 */
     .hero-section {
-        padding: 70px 12px;
+        background-image: url('./img/sp-top-back.png');
+        background-size: cover;
+        background-position: center -180px;
+        /* 高さを狭めるためさらに調整 */
+        background-repeat: no-repeat;
+        height: 290px;
+        padding: 40vw 20px 40px;
+    }
+
+    .hero-text {
+        margin-top: 5vw;
     }
 
     .hero-subtitle {
-        font-size: 14px;
+        font-size: 13px !important;
     }
 
     .hero-title {
-        font-size: 24px;
+        font-size: 18px !important;
         line-height: 1.2;
     }
 
-    .hero-domain {
-        font-size: 18px;
-    }
-
     .hero-description {
-        font-size: 13px;
+        font-size: 14px !important;
     }
 
+    /* 小さな画面でのボタン調整 */
     .hero-cta {
-        padding: 12px 25px;
-        font-size: 15px;
-    }
-
-    .image-collage {
-        width: 100%;
-        max-width: 250px;
-        height: 250px;
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+        border-radius: 6px;
+        border: 1px solid #ffd500 !important;
+        box-shadow: 0 3px 8px rgba(231, 0, 0, 0.3);
     }
 
     /* メインコンテンツの調整 */
@@ -976,29 +961,9 @@ body {
         transform: translateX(-50%);
     }
 
-    /* ホバー時のロゴ消失を無効化 */
-    .company-card:hover .logo-image {
-        opacity: 1;
-        transform: translateX(-50%) scale(1.05);
-        /* 少し浮く感じを強調 */
-    }
-
     .company-name {
         font-size: 11px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        /* モバイルでも初期状態で表示するか、
-           あるいは完全に非表示にしてロゴのみにするか。
-           ここでは一旦、初期状態で非表示、ホバーで表示という仕組み自体は残すか？
-           いや、ユーザーは「消えてしまっている」と言っているので、
-           ロゴが消えるのが問題。名前は補助的に出す。 */
         display: none;
-        /* 名前はモバイルではスペースの関係で一旦非表示に */
     }
 
     .university {
