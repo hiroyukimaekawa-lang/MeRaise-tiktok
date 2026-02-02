@@ -18,20 +18,20 @@ const header = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 100) {
         header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     } else {
         header.style.boxShadow = 'none';
     }
-    
+
     lastScroll = currentScroll;
 });
 
 // カードのホバーエフェクト強化
 const companyCards = document.querySelectorAll('.company-card');
 companyCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transition = 'all 0.3s ease';
     });
 });
@@ -64,17 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Slick Carouselの初期化を無効化（レスポンシブ時はHTMLの内容のみを表示）
 // すべての画面サイズでカルーセルを無効化
-$(document).ready(function(){
+$(document).ready(function () {
     // 既に初期化されているSlick Carouselを破棄
     if ($('.carousel').hasClass('slick-initialized')) {
         $('.carousel').slick('unslick');
     }
-    
+
     // カルーセルクラスを削除して通常のグリッド表示に
     $('.carousel').removeClass('slick-initialized slick-slider');
-    
+
     // ウィンドウリサイズ時もカルーセルを無効化
-    $(window).on('resize', function(){
+    $(window).on('resize', function () {
         if ($('.carousel').hasClass('slick-initialized')) {
             $('.carousel').slick('unslick');
         }
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 // CTAボタンのクリックイベント（実際のリンクに置き換える必要があります）
 document.querySelectorAll('.hero-cta, .feature-cta, .btn-register').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         // ここに実際のリンク先やトラッキングコードを追加
         console.log('CTA clicked:', this.textContent);
     });
@@ -127,7 +127,7 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ========== モーダル機能 ==========
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // モーダルを開く
     function openModal(modalId) {
         const modal = document.getElementById(modalId);
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // モーダルを開くボタン
     document.querySelectorAll('[data-modal]').forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
             const modalId = this.getAttribute('data-modal');
             openModal(modalId);
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // モーダルを閉じるボタン（×ボタン）
     document.querySelectorAll('.modal-close').forEach(closeBtn => {
-        closeBtn.addEventListener('click', function() {
+        closeBtn.addEventListener('click', function () {
             const modal = this.closest('.modal');
             if (modal) {
                 closeModal(modal.id);
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // モーダル背景をクリックで閉じる
     document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener('click', function (e) {
             if (e.target === this) {
                 closeModal(this.id);
             }
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ESCキーでモーダルを閉じる
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             document.querySelectorAll('.modal.active').forEach(modal => {
                 closeModal(modal.id);
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ログインと登録フォームの切り替え
     const switchToRegisterLink = document.querySelector('.switch-to-register');
     if (switchToRegisterLink) {
-        switchToRegisterLink.addEventListener('click', function(e) {
+        switchToRegisterLink.addEventListener('click', function (e) {
             e.preventDefault();
             closeModal('login-modal');
             setTimeout(() => {
@@ -198,13 +198,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== ログインフォーム処理 ==========
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
             const submitBtn = this.querySelector('.btn-submit');
-            
+
             // バリデーション
             if (!email || !password) {
                 alert('メールアドレスとパスワードを入力してください。');
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 次へボタン
         document.querySelectorAll('#register-form .btn-next').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (validateStep(currentStep)) {
                     if (currentStep < totalSteps) {
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 戻るボタン
         document.querySelectorAll('#register-form .btn-prev').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (currentStep > 1) {
                     currentStep--;
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // フォーム送信
-        registerForm.addEventListener('submit', function(e) {
+        registerForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // 最終ステップのバリデーション
@@ -340,41 +340,41 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Accept': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    // フォーム送信成功イベントを送信
-                    if (window.dataLayer) {
-                        window.dataLayer.push({
-                            'event': 'form_submit',
-                            'event_category': 'conversion',
-                            'event_label': '会員登録フォーム',
-                            'value': 1
-                        });
+                .then(response => {
+                    if (response.ok) {
+                        // フォーム送信成功イベントを送信
+                        if (window.dataLayer) {
+                            window.dataLayer.push({
+                                'event': 'form_submit',
+                                'event_category': 'conversion',
+                                'event_label': '会員登録フォーム',
+                                'value': 1
+                            });
+                        }
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'form_submit', {
+                                'event_category': 'conversion',
+                                'event_label': '会員登録フォーム',
+                                'value': 1
+                            });
+                        }
+
+                        alert('登録が完了しました！\nご登録ありがとうございます。');
+                        registerForm.reset();
+                        currentStep = 1;
+                        updateStepDisplay();
+                        closeModal('register-modal');
+                    } else {
+                        throw new Error('送信に失敗しました。');
                     }
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submit', {
-                            'event_category': 'conversion',
-                            'event_label': '会員登録フォーム',
-                            'value': 1
-                        });
-                    }
-                    
-                    alert('登録が完了しました！\nご登録ありがとうございます。');
-                    registerForm.reset();
-                    currentStep = 1;
-                    updateStepDisplay();
-                    closeModal('register-modal');
-                } else {
-                    throw new Error('送信に失敗しました。');
-                }
-            })
-            .catch(error => {
-                alert('エラーが発生しました。もう一度お試しください。\n' + error.message);
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = '会員登録する';
-            });
+                })
+                .catch(error => {
+                    alert('エラーが発生しました。もう一度お試しください。\n' + error.message);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '会員登録する';
+                });
         });
 
         // 初期表示
@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // LINE相談ボタン クリック計測
     const lineConsultationBtn = document.getElementById('line-consultation-btn');
     if (lineConsultationBtn) {
-        lineConsultationBtn.addEventListener('click', function() {
+        lineConsultationBtn.addEventListener('click', function () {
             sendGAEvent('line_click', {
                 'event_category': 'engagement',
                 'event_label': 'LINE相談ボタン',
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 「面接対策はこちら」ボタン クリック計測
     const interviewBtn = document.getElementById('interview-btn');
     if (interviewBtn) {
-        interviewBtn.addEventListener('click', function() {
+        interviewBtn.addEventListener('click', function () {
             sendGAEvent('interview_click', {
                 'event_category': 'engagement',
                 'event_label': '面接対策ボタン',
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 「ES添削はこちら」ボタン クリック計測
     const esEditBtn = document.getElementById('es-edit-btn');
     if (esEditBtn) {
-        esEditBtn.addEventListener('click', function() {
+        esEditBtn.addEventListener('click', function () {
             sendGAEvent('es_click', {
                 'event_category': 'engagement',
                 'event_label': 'ES添削ボタン',
@@ -434,11 +434,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // フォーム送信完了計測（index.html内のregister-form）
-    const registerForm = document.getElementById('register-form');
     if (registerForm) {
         // 既存のsubmitイベントリスナーを保持しつつ、イベント送信を追加
         const originalSubmitHandler = registerForm.onsubmit;
-        registerForm.addEventListener('submit', function(e) {
+        registerForm.addEventListener('submit', function (e) {
             // フォーム送信が成功した場合のイベント送信は、送信成功後に実行される
         }, true);
     }

@@ -102,6 +102,7 @@ body {
 }
 
 /* ヒーローセクション */
+/* ヒーローセクション */
 .hero-section {
     background-image: url('./img/top-back3.png');
     background-size: 100% auto;
@@ -109,13 +110,10 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
     /* 画像内のロゴ下にテキストを配置するための余白（比率維持） */
-    /* テキストを少し上に配置するため、55vw -> 48vw に変更 */
     padding: 34vw 20px 40px;
     color: #fff;
-    /* テキスト色を白に戻す */
     /* 背景画像下の余白部分用 */
     position: relative;
-    /* object-fit, filter, min-height など不要なプロパティを削除または調整 */
 }
 
 /* オーバーレイ削除（画像そのまま表示のため） */
@@ -150,76 +148,94 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 3vw;
-    /* 4vw -> 3vw にサイズダウン */
+    font-size: 2.5vw;
     margin-bottom: 1.5vw;
     color: #fff;
-    /* 白文字 */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    /* 視認性向上のための影 */
 }
 
-/* PCサイズでフォントが巨大になりすぎないように制御 */
-@media (min-width: 1024px) {
+/* PCサイズ等の上限設定（画面が大きすぎるときのみ固定） */
+@media (min-width: 1200px) {
+
     .hero-subtitle {
-        font-size: 16px;
-        /* 20px -> 16px */
-        margin-bottom: 15px;
+        font-size: 30px;
+        /* 1200px * 0.025 = 30px */
+        margin-bottom: 18px;
     }
 
     .hero-title {
-        font-size: 32px;
-        /* 40px -> 32px */
+        font-size: 36px;
+        /* 1200px * 0.03 = 36px */
+    }
+
+    .hero-description {
+        font-size: 26px;
+        /* 1200px * 0.022 = 26.4px */
+    }
+
+    .hero-cta {
+        font-size: 18px;
+        /* Button text max size */
+        padding: 18px 48px;
     }
 }
 
 .hero-title {
-    font-size: 5.5vw;
-    /* 7vw -> 5.5vw にサイズダウン */
+    font-size: 3.0vw;
     font-weight: 900;
     margin-bottom: 2vw;
     line-height: 1.2;
     color: #fff;
-    /* 白文字 */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-domain {
     display: none;
-    /* 元コードにありましたが使用されていないようなので */
 }
 
 .hero-description {
-    font-size: 2.8vw;
-    /* 3.5vw -> 2.8vw にサイズダウン */
+    font-size: 2.2vw;
     line-height: 1.8;
     margin-bottom: 4vw;
     opacity: 0.95;
     color: #fff;
-    /* 白文字 */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.6vw;
+    }
+
+    .hero-title {
+        font-size: 2.1vw;
+        margin-bottom: 3vw;
+    }
+
     .hero-description {
-        font-size: 14px;
-        /* 16px -> 14px */
-        margin-bottom: 40px;
+        font-size: 1.4vw;
+    }
+
+    .hero-cta {
+        font-size: 2.2vw;
+        padding: 2vw 5vw;
     }
 }
 
 .hero-cta {
     display: inline-block;
-    padding: 1.5vw 4vw;
+    padding: 1vw 2vw;
     background-color: #ffd500;
     color: #fff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 4vw;
+    font-size: 2vw;
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 15px rgba(231, 0, 0, 0.3);
 }
+
+
 
 @media (min-width: 1024px) {
     .hero-cta {
@@ -296,8 +312,8 @@ body {
 }
 
 .company-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .company-header {
@@ -638,35 +654,33 @@ body {
     }
 
     .line-promo-bar {
-        padding: 10px 0;
+        padding: 5px 0;
     }
 
     .line-link {
         font-size: 13px;
     }
 
+    /* .hero-content margin-top 削除 */
+    .hero-section {
+        padding: 250vw 20px 20px;
+        background-position: center -5vw;
+    }
+
     /* ヒーローセクションの調整 */
     /* ヒーローセクションの調整 - Global style handles layout */
     /* .hero-section { padding already set globally to percentages } */
 
-    .hero-content {
-        /* Already handled globally */
-    }
 
-    .hero-text {
-        /* Already centered globally */
-    }
+
+
 
     /* Background colors and text shadows for mobile specific visibility if needed, 
        but global now sets base content colors. 
        Leaving specific adjustments if they differ from desktop needs. */
 
     /* Revert text colors to white/shadowed for image overlay if not using global */
-    .hero-text .hero-subtitle,
-    .hero-text .hero-title,
-    .hero-text .hero-description {
-        /* Keep text shadow for readability over image if global didn't cover it enough */
-    }
+
 
     /* 画像上のテキストは白文字のまま影をつける */
     .hero-text .hero-subtitle,
@@ -674,33 +688,34 @@ body {
     .hero-text .hero-description {
         color: #fff;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        font-size: 7px;
+    }
+
+    .hero-subtitle {
+        font-size: 10px;
+        margin-bottom: 5px;
     }
 
     .hero-title {
-        font-size: 28px;
-        line-height: 1.3;
-        margin-bottom: 15px;
-    }
-
-    .hero-domain {
-        font-size: 16px;
-        margin-bottom: 15px;
+        font-size: 10px;
+        line-height: 1.2;
+        margin-bottom: 10px;
     }
 
     .hero-description {
-        font-size: 14px;
-        line-height: 1.7;
-        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 15px;
     }
 
     .hero-cta {
-        padding: 12px 24px;
-        font-size: 15px;
+        padding: 1px 2px;
+        font-size: 2px;
+        border-radius: 1px;
+        box-shadow: none;
         width: auto;
-        max-width: none;
         display: inline-block;
         margin: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .image-collage {
@@ -908,7 +923,7 @@ body {
 
     /* ヒーローセクションの調整 */
     .hero-section {
-        padding: 40px 12px;
+        padding: 70px 12px;
     }
 
     .hero-subtitle {
@@ -941,7 +956,7 @@ body {
 
     /* メインコンテンツの調整 */
     .main-content {
-        padding: 30px 12px;
+        padding: 10px 12px;
     }
 
     /* セクションヘッダーの調整 */
@@ -961,9 +976,11 @@ body {
         transform: translateX(-50%);
     }
 
+    /* ホバー時のロゴ消失を無効化 */
     .company-card:hover .logo-image {
-        opacity: 0;
-        transform: translateX(-50%) scale(0.8);
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+        /* 少し浮く感じを強調 */
     }
 
     .company-name {
@@ -973,13 +990,15 @@ body {
         text-overflow: ellipsis;
         max-width: 100%;
         left: 50%;
-        transform: translateX(-50%) scale(0.8);
+        transform: translateX(-50%);
         text-align: center;
-    }
-
-    .company-card:hover .company-name {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
+        /* モバイルでも初期状態で表示するか、
+           あるいは完全に非表示にしてロゴのみにするか。
+           ここでは一旦、初期状態で非表示、ホバーで表示という仕組み自体は残すか？
+           いや、ユーザーは「消えてしまっている」と言っているので、
+           ロゴが消えるのが問題。名前は補助的に出す。 */
+        display: none;
+        /* 名前はモバイルではスペースの関係で一旦非表示に */
     }
 
     .university {
