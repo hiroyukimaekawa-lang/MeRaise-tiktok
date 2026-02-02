@@ -106,10 +106,10 @@ body {
     background-image: url('./img/top-back3.png');
     background-size: cover;
     /* 画像全体をカバー */
-    background-position: top center;
+    background-position: center -40px;
     background-repeat: no-repeat;
     /* 画像内のロゴ下にテキストを配置するための余白（比率維持） */
-    padding: 34vw 20px 40px;
+    padding: 25vw 20px 40px;
     color: #fff;
     /* 背景画像下の余白部分用 */
     position: relative;
